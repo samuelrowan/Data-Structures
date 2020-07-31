@@ -27,3 +27,26 @@ class LinkedList:
             head = self.head
             self.head = None
             self.tail = None
+            return head.get_value()
+        value = self.head.get_value
+        self.head = self.head.get_next
+        return value
+    def contains(self, value):
+        if not self.head:
+            return False
+        current = self.head
+        while current:
+            if current.get_value() == value:
+                return True
+            current = current.get_next()
+        return False
+    def get_max(self):
+        if not self.head:
+            return None
+        current = self.head
+        max_val = self.head.value
+        while current:
+            if current.value > max_val:
+                max_val = current.value
+            current = current.next_node
+        return max_val
