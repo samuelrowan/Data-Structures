@@ -28,7 +28,23 @@ return elements in Last In First Out order.
 #         else:
 #             self.size = self.size-1
 #             return self.storage.pop()
-
+import sys
+sys.path.append('../singly_linked_list')
+from singly_linked_list import LinkedList
 class Stack:
     def __init__(self):
-        pass
+        self.size = 0
+        self.storage = LinkedList()
+
+    def __len__(self):
+        return self.size
+
+    def push(self, value):
+        self.storage.add_to_head(value)
+        self.size += 1
+
+    def pop(self):
+        if self.size == 0:
+            return None
+        self.size -= 1
+        return self.storage.remove_head()
